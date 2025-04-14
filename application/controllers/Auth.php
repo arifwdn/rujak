@@ -12,6 +12,7 @@ class Auth extends CI_Controller
 		$this->form_validation->set_rules('password', 'password', 'required');
 		if ($this->form_validation->run() == false) {
 			$data['title'] = "Login";
+			$data['navbar'] = "";
 			$data['content'] = $this->load->view('login', [], true);
 			$this->load->view('main', $data);
 		} else {

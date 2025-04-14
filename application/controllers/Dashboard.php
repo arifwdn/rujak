@@ -9,7 +9,9 @@ class Dashboard extends CI_Controller
     }
     public function index()
     {
-        echo "<h1>Ini halaman dashboard</h1>";
-        echo "<a href='" . base_url('auth/logout') . "'>Log out</a>";
+        $data['title'] = "Dashboard";
+        $data['navbar'] = $this->load->view('navbar', [], true);
+        $data['content'] = $this->load->view('dashboard', [], true);
+        $this->load->view('main', $data);
     }
 }
