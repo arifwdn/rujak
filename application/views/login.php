@@ -1,22 +1,24 @@
-<div class="container-fluid">
-    <center>
-        <div class="card">
-            <div class="card-body">
-                This is some text within a card body.
-            </div>
+<?= $this->session->tempdata('login_message'); ?>
+<div class="vh-100 vw-100 d-flex justify-content-center align-items-center">
+    <div class="card col-md-4">
+        <div class="card-body">
+            <center>
+                <img src="<?= base_url('assets/img/logo.svg') ?>" alt="logo rujak" width="100px" />
+                <p>Please login first</p>
+            </center>
+            <form action="<?= base_url('auth') ?>" method="post" class="row">
+                <div class="mb-3 form-floating">
+                    <input type="text" class="form-control" id="username" name="username" value="<?= set_value('username'); ?>" placeholder="type username here..." required>
+                    <label for="username" class="form-label">Username</label>
+                </div>
+                <div class="mb-3 form-floating">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="type password here" required>
+                    <label for="password" class="form-label">Password</label>
+                </div>
+                <div class="mb-3 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-dark mb-3">Login</button>
+                </div>
+            </form>
         </div>
-    </center>
-    <form action="" class="row">
-        <div class="col-auto">
-            <label for="username" class="visually-hidden">Username</label>
-            <input type="text" class="form-control" id="username" value="" placeholder="type username here...">
-        </div>
-        <div class="col-auto">
-            <label for="password" class="visually-hidden">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="type password here">
-        </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Login</button>
-        </div>
-    </form>
+    </div>
 </div>
