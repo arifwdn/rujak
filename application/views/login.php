@@ -9,11 +9,11 @@
             <form action="<?= base_url('auth') ?>" method="post" class="row">
                 <div class="mb-3 form-floating">
                     <input type="text" class="form-control" id="username" name="username" value="<?= set_value('username'); ?>" placeholder="type username here..." required>
-                    <label for="username" class="form-label">Username</label>
+                    <label for="username" class="form-label ms-2">Username</label>
                 </div>
                 <div class="mb-3 form-floating">
                     <input type="password" class="form-control" id="password" name="password" placeholder="type password here" required>
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password" class="form-label ms-2">Password</label>
                 </div>
                 <div class="mb-3 d-flex justify-content-end">
                     <button type="submit" class="btn btn-dark mb-3">Login</button>
