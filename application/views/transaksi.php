@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2>Transaksi hari ini</h2>
+            <h2>Transaksi</h2>
         </div>
         <div class="col-md-6 d-flex justify-content-end align-items-end">
             <b><?= date('D, d M Y'); ?></b>
@@ -35,31 +35,5 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card text-bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Total Transaksi</div>
-                <div class="card-body">
-                    <h1 class="card-title">0</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Belum diambil (hari ini)</div>
-                <div class="card-body">
-                    <h1 class="card-title">0</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Sudah diambil (hari ini)</div>
-                <div class="card-body">
-                    <h1 class="card-title">0</h1>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
