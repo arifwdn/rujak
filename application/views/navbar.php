@@ -15,16 +15,16 @@
                     <a class="nav-link <?= ($title == 'Barang') ? 'active' : ''; ?>" href="<?= base_url('barang'); ?>">Barang</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= ($title == 'Customer') ? 'active' : ''; ?>" href="#">Customer</a>
+                    <a class="nav-link <?= ($title == 'Customer') ? 'active' : ''; ?>" href="<?= base_url('customer'); ?>">Customer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= ($title == 'Transaksi') ? 'active' : ''; ?>" href="#">Transaksi</a>
+                    <a class="nav-link <?= ($title == 'Transaksi') ? 'active' : ''; ?>" href="<?= base_url('transaksi'); ?>">Transaksi</a>
                 </li>
             </ul>
             <span class="navbar-text">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link <?= ($title == 'Profile') ? 'active' : ''; ?>" aria-current="page" href="#">Profile</a>
+                        <a class="nav-link <?= ($title == 'Profile') ? 'active' : ''; ?>" aria-current="page" href="<?= base_url('profile'); ?>">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= base_url('auth/logout'); ?>">Log out</a>
