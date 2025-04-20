@@ -17,6 +17,7 @@
         <table class="table">
             <thead class="table-light">
                 <th>No</th>
+                <th>Tanggal</th>
                 <th>Nama Customer</th>
                 <th>Lokasi</th>
                 <th>Status</th>
@@ -25,6 +26,7 @@
             <tbody>
                 <tr>
                     <td>1</td>
+                    <td><?= date('d-m-Y'); ?></td>
                     <td>Alibi</td>
                     <td>Asgard</td>
                     <td><span class="badge text-bg-warning">Belum diambil</span></td>
