@@ -1,3 +1,4 @@
+<?= $this->session->tempdata('profile_message'); ?>
 <div class="container">
     <div class="row mt-3">
         <div class="col-md-6 text-center">
@@ -10,10 +11,16 @@
                 <div class="form-floating mb-3">
                     <input type="password" class="form-control" name="password" id="password" placeholder="Type New Password">
                     <label for="password">Password</label>
+                    <i class="text-danger mt-2">
+                        <?php echo form_error('password'); ?>
+                    </i>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password2" class="form-control" name="password2" id="password2" placeholder="Type New Password Again">
-                    <label for="password2">Password Verification</label>
+                    <input type="password" class="form-control" name="password_confirm" id="password_confirm" placeholder="Type New Password Again">
+                    <label for="password_confirm">Password Confirmation</label>
+                    <i class="text-danger mt-2">
+                        <?php echo form_error('password_confirm'); ?>
+                    </i>
                 </div>
                 <div class="d-flex justify-content-end align-items-center mb-3">
                     <button class="btn btn-dark" type="submit">Save</button>
