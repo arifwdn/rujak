@@ -12,8 +12,9 @@ class Customer extends CI_Controller
     public function index()
     {
         $data['title'] = "Customer";
+        $data['customer'] = $this->customer->getCustomer();
         $data['navbar'] = $this->load->view('navbar', $data, true);
-        $data['content'] = $this->load->view('customer', [], true);
+        $data['content'] = $this->load->view('customer', $data, true);
         $this->load->view('main', $data);
     }
 

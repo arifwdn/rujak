@@ -24,16 +24,22 @@
                 <th>Action</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Fulanah</td>
-                    <td><a class="btn badge fs-6 text-dark" href="https://wa.me/6282158292042" target="_blank">6282158292042</a></td>
-                    <td>Warung Biru, depan bundaran Angsau</td>
-                    <td>
-                        <a href="#" class="btn badge text-bg-primary">edit</a>
-                        <a href="#" class="btn badge text-bg-danger">hapus</a>
-                    </td>
-                </tr>
+                <?php $i = 1;
+                foreach ($customer as $data):
+                ?>
+                    <tr>
+                        <td><?= $i ?></td>
+                        <td><?= $data['nama']; ?></td>
+                        <td><a class="btn badge fs-6 text-dark" href="https://wa.me/<?= $data['no_hp']; ?>" target="_blank"><?= $data['no_hp']; ?></a></td>
+                        <td><?= $data['lokasi']; ?></td>
+                        <td>
+                            <a href="#" class="btn badge text-bg-primary">edit</a>
+                            <a href="#" class="btn badge text-bg-danger">hapus</a>
+                        </td>
+                    </tr>
+                <?php
+                    $i++;
+                endforeach; ?>
             </tbody>
         </table>
     </div>
