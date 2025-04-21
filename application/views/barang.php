@@ -25,17 +25,21 @@
                 <th>Action</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Rujak kecil</td>
-                    <td>Rp10000,-</td>
-                    <td>10</td>
-                    <td>pcs</td>
-                    <td>
-                        <a href="#" class="btn badge text-bg-primary">edit</a>
-                        <a href="#" class="btn badge text-bg-danger">hapus</a>
-                    </td>
-                </tr>
+                <?php $i = 1;
+                foreach ($barang as $data): ?>
+                    <tr>
+                        <td><?= $i; ?></td>
+                        <td><?= $data['nama_barang']; ?></td>
+                        <td>Rp<?= $data['harga']; ?>,-</td>
+                        <td><?= $data['stok']; ?></td>
+                        <td><?= $data['satuan']; ?></td>
+                        <td>
+                            <a href="#" class="btn badge text-bg-primary">edit</a>
+                            <a href="#" class="btn badge text-bg-danger">hapus</a>
+                        </td>
+                    </tr>
+                <?php $i++;
+                endforeach; ?>
             </tbody>
         </table>
     </div>

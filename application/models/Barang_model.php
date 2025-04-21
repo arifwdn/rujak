@@ -22,5 +22,9 @@ class Barang_model extends CI_Model
         return $query;
     }
 
-    public function getBarang($id_barang = null) {}
+    public function getBarang()
+    {
+        $data = $this->db->get('barang')->result_array();
+        return $data;
+    }
 }
