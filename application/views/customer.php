@@ -33,7 +33,7 @@
                         <td><a class="btn badge fs-6 text-dark" href="https://wa.me/<?= $data['no_hp']; ?>" target="_blank"><?= $data['no_hp']; ?></a></td>
                         <td><?= $data['lokasi']; ?></td>
                         <td>
-                            <a href="#" class="btn badge text-bg-primary">edit</a>
+                            <a href="<?= base_url('customer/edit_customer/') . $data['id_customer']; ?>" class="btn badge text-bg-primary">edit</a>
                             <a href="#" class="btn badge text-bg-danger">hapus</a>
                         </td>
                     </tr>

@@ -24,4 +24,21 @@ class Customer_model extends CI_Model
         $data = $this->db->get('customer');
         return $data->result_array();
     }
+
+    public function getDetailCustomer()
+    {
+        $data = $this->db->get_where('customer', 'id_customer=' . $this->id_customer);
+        return $data->row_array();
+    }
+
+    public function updateCustomer()
+    {
+        $customer = [
+            'nama' => $this->nama,
+            'no_hp' => $this->no_hp,
+            'lokasi' => $this->lokasi,
+        ];
+        $query = $this->db->update('customer', $customer, 'id_customer=' . $this->id_customer);
+        return $query;
+    }
 }
