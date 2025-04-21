@@ -1,3 +1,4 @@
+<?= $this->session->tempdata('customer_message'); ?>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -10,7 +11,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 d-flex justify-content-end align-items-center">
-            <a href="#" class="btn btn-dark mb-2">Add Customer</a>
+            <a href="<?= base_url('customer/add_customer'); ?>" class="btn btn-dark mb-2">Add Customer</a>
         </div>
     </div>
     <div class="row">
