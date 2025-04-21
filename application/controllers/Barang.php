@@ -22,6 +22,7 @@ class Barang extends CI_Controller
     public function add_barang()
     {
         $data['title'] = "Barang";
+        $data['barang'] = [];
         $data['navbar'] = $this->load->view('navbar', $data, true);
         $data['content'] = $this->load->view('form_barang', $data, true);
         $this->load->view('main', $data);
@@ -39,6 +40,31 @@ class Barang extends CI_Controller
             redirect('barang');
         }
     }
+
+    public function edit_barang($id_barang)
+    {
+        $data['title'] = "Barang";
+        $this->barang->id_barang = $id_barang;
+        $data['barang'] = $this->barang->getDetailBarang();
+        $data['navbar'] = $this->load->view('navbar', $data, true);
+        $data['content'] = $this->load->view('form_barang', $data, true);
+        $this->load->view('main', $data);
+    }
+
+    public function proses_edit_barang()
+    {
+        $this->barang->id_barang = $this->input->post('id_barang');
+        $this->barang->nama_barang = $this->input->post('nama_barang');
+        $this->barang->harga = $this->input->post('harga');
+        $this->barang->stok = $this->input->post('stok');
+        $this->barang->satuan = $this->input->post('satuan');
+        $save = $this->barang->update_barang();
+        if ($save) {
+            $this->session->set_tempdata('barang_message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Edit Data Success!</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>', 3);
+            redirect('barang');
+        }
+    }
+
     public function hapus_barang($id_barang)
     {
         $this->barang->id_barang = $id_barang;

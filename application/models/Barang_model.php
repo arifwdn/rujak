@@ -28,6 +28,24 @@ class Barang_model extends CI_Model
         return $data;
     }
 
+    public function getDetailBarang()
+    {
+        $data = $this->db->get_where('barang', 'id_barang=' . $this->id_barang)->row_array();
+        return $data;
+    }
+
+    public function update_barang()
+    {
+        $barang = [
+            'nama_barang' => $this->nama_barang,
+            'harga' => $this->harga,
+            'stok' => $this->stok,
+            'satuan' => $this->satuan
+        ];
+        $query = $this->db->update('barang', $barang, 'id_barang=' . $this->id_barang);
+        return $query;
+    }
+
     public function deleteBarang()
     {
         $delete = $this->db->delete('barang', 'id_barang=' . $this->id_barang);
