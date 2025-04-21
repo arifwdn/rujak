@@ -1,5 +1,14 @@
 <?= $this->session->tempdata('profile_message'); ?>
 <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Profile</h2>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end align-items-end">
+            <b><?= date('D, d M Y'); ?></b>
+        </div>
+        <hr />
+    </div>
     <div class="row mt-3">
         <div class="col-md-6 text-center">
             <img src="<?= base_url('assets/img/user.svg') ?>" alt="Profile Photo" width="200px" />

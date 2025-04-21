@@ -1,3 +1,4 @@
+<?= $this->session->tempdata('barang_message'); ?>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -10,7 +11,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 d-flex justify-content-end align-items-center">
-            <a href="#" class="btn btn-dark mb-2">Add Barang</a>
+            <a href="<?= base_url('barang/add_barang'); ?>" class="btn btn-dark mb-2">Add Barang</a>
         </div>
     </div>
     <div class="row">
@@ -20,6 +21,7 @@
                 <th>Nama Barang</th>
                 <th>Harga</th>
                 <th>Stok</th>
+                <th>Satuan</th>
                 <th>Action</th>
             </thead>
             <tbody>
@@ -28,6 +30,7 @@
                     <td>Rujak kecil</td>
                     <td>Rp10000,-</td>
                     <td>10</td>
+                    <td>pcs</td>
                     <td>
                         <a href="#" class="btn badge text-bg-primary">edit</a>
                         <a href="#" class="btn badge text-bg-danger">hapus</a>
