@@ -34,7 +34,7 @@
                         <td><?= $data['lokasi']; ?></td>
                         <td>
                             <a href="<?= base_url('customer/edit_customer/') . $data['id_customer']; ?>" class="btn badge text-bg-primary">edit</a>
-                            <a href="#" class="btn badge text-bg-danger">hapus</a>
+                            <a href="<?= base_url('customer/delete_customer/') . $data['id_customer']; ?>" class="btn badge text-bg-danger">hapus</a>
                         </td>
                     </tr>
                 <?php

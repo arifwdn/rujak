@@ -64,4 +64,14 @@ class Customer extends CI_Controller
             redirect('customer');
         }
     }
+
+    public function delete_customer($id_customer)
+    {
+        $this->customer->id_customer = $id_customer;
+        $delete = $this->customer->deleteCustomer();
+        if ($delete) {
+            $this->session->set_tempdata('barang_message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Delete Data Success!</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>', 3);
+            redirect('customer');
+        }
+    }
 }

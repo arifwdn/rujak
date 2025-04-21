@@ -65,7 +65,7 @@ class Barang extends CI_Controller
         }
     }
 
-    public function hapus_barang($id_barang)
+    public function delete_barang($id_barang)
     {
         $this->barang->id_barang = $id_barang;
         $delete = $this->barang->deleteBarang();

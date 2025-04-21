@@ -35,7 +35,7 @@
                         <td><?= $data['satuan']; ?></td>
                         <td>
                             <a href="<?= base_url('barang/edit_barang/') . $data['id_barang']; ?>" class="btn badge text-bg-primary">edit</a>
-                            <a href="<?= base_url('barang/hapus_barang/') . $data['id_barang']; ?>" class="btn badge text-bg-danger">hapus</a>
+                            <a href="<?= base_url('barang/delete_barang/') . $data['id_barang']; ?>" class="btn badge text-bg-danger">hapus</a>
                         </td>
                     </tr>
                 <?php $i++;

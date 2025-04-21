@@ -41,4 +41,10 @@ class Customer_model extends CI_Model
         $query = $this->db->update('customer', $customer, 'id_customer=' . $this->id_customer);
         return $query;
     }
+
+    public function deleteCustomer()
+    {
+        $query = $this->db->delete('customer', 'id_customer=' . $this->id_customer);
+        return $query;
+    }
 }
