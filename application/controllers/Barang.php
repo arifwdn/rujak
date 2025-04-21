@@ -39,4 +39,13 @@ class Barang extends CI_Controller
             redirect('barang');
         }
     }
+    public function hapus_barang($id_barang)
+    {
+        $this->barang->id_barang = $id_barang;
+        $delete = $this->barang->deleteBarang();
+        if ($delete) {
+            $this->session->set_tempdata('barang_message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Delete Data Success!</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>', 3);
+            redirect('barang');
+        }
+    }
 }
