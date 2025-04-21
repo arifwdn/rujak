@@ -2,21 +2,21 @@
 <div class="container">
     <div class="row mt-3">
         <div class="col-md-6 text-center">
-            <img src="<?= base_url('assets/img/user.svg') ?>" alt="Profile Photo" width="300px" />
-            <h2>Admin</h2>
+            <img src="<?= base_url('assets/img/user.svg') ?>" alt="Profile Photo" width="200px" />
+            <h2><?= $this->session->userdata('username'); ?></h2>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
             <form class="form-control" action="<?= base_url('profile/change_password') ?>" method="post">
                 <h2>Change Password</h2>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Type New Password">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Type New Password" required>
                     <label for="password">Password</label>
                     <i class="text-danger mt-2">
                         <?php echo form_error('password'); ?>
                     </i>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" name="password_confirm" id="password_confirm" placeholder="Type New Password Again">
+                    <input type="password" class="form-control" name="password_confirm" id="password_confirm" placeholder="Type New Password Again" required>
                     <label for="password_confirm">Password Confirmation</label>
                     <i class="text-danger mt-2">
                         <?php echo form_error('password_confirm'); ?>
