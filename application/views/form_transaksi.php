@@ -82,7 +82,7 @@
                             </td>
                             <td>Rujak Uk.Kecil</td>
                             <td>Rp4000,-</td>
-                            <td><input type="number" name="qty[]" id=""></td>
+                            <td><input class="form-control" style="width: 100px;" type="number" name="qty[]" id=""></td>
                             <td>-</td>
                             <td>-</td>
                             <td>Rp16000,-</td>
@@ -106,7 +106,7 @@
                             <p>Customer</p>
                         </td>
                         <td>
-                            <p>Telah diambil pada <?= date('D, d-M-Y'); ?></p>
+                            <p>Telah diambil pada <?= indodatetime(date('Y-m-d')); ?></p>
                             <br><br><br>
                             <p>Pengambil</p>
                         </td>
