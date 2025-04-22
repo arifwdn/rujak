@@ -26,7 +26,7 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td><?= date('d-m-Y'); ?></td>
+                    <td><?= indodatetime(date('Y-m-d')); ?></td>
                     <td>Alibi</td>
                     <td>Asgard</td>
                     <td><span class="badge text-bg-warning">Belum diambil</span></td>
