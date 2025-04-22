@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-floating mb-3">
                     <textarea class="form-control" id="lokasi" name="lokasi" placeholder="Alamat Customer" required style="height: 100px; resize:none;"><?= ($customer != []) ? $customer['lokasi'] : ''; ?></textarea>
-                    <label for="nama">Lokasi</label>
+                    <label for="lokasi">Lokasi</label>
                 </div>
                 <div class="form-floating mb-3 d-flex justify-content-end">
                     <button type="submit" class="btn btn-dark">Save</button>

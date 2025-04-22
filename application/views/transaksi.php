@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 d-flex justify-content-end align-items-center">
-            <a href="#" class="btn btn-dark mb-2">Add Transaksi</a>
+            <a href="<?= base_url('transaksi/add_transaksi') ?>" class="btn btn-dark mb-2">Add Transaksi</a>
         </div>
     </div>
     <div class="row">

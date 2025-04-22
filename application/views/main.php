@@ -13,6 +13,7 @@
     <?= $navbar; ?>
     <?= $content; ?>
     <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <?= (isset($script)) ? $script : ''; ?>
 </body>
 
 </html>
