@@ -5,7 +5,7 @@
             <h2>Customer</h2>
         </div>
         <div class="col-md-6 d-flex justify-content-end align-items-end">
-            <b><?= date('D, d M Y'); ?></b>
+            <b><?= indodatetime(date('Y-m-d')); ?></b>
         </div>
         <hr />
     </div>
