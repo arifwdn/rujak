@@ -1,3 +1,1 @@
-<script type="Application/Javascript">
-
-</script>
+<script src="<?= base_url('assets/js/scriptTransaksi.js'); ?>"></script>

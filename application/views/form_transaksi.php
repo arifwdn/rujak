@@ -26,9 +26,11 @@
                     <div class="form-floating">
                         <select class="form-select" id="id_customer" name="id_customer" aria-label="Pilih Customer" required>
                             <option selected disabled>-Pilih Customer-</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <?php foreach ($customer as $data): ?>
+                                <option value="<?= $data['id_customer'] ?>" data-hp="<?= $data['no_hp']; ?>" data-lokasi="<?= $data['lokasi']; ?>">
+                                    <?= $data['nama'] ?>
+                                </option>
+                            <?php endforeach; ?>
                         </select>
                         <label for="id_customer">Customer</label>
                     </div>
@@ -37,17 +39,17 @@
                     <tr>
                         <td>Nama</td>
                         <td>:</td>
-                        <td>Alibi</td>
+                        <td id="namaCustomer">Alibi</td>
                     </tr>
                     <tr>
                         <td>No. Hp/Wa</td>
                         <td>:</td>
-                        <td><a class="text-dark text-decoration-none" href="https://wa.me/6282158292042" target="_blank" rel="noopener noreferrer">6282158292042</a></td>
+                        <td><a id="noHpCustomer" class="text-dark text-decoration-none" href="https://wa.me/6282158292042" target="_blank" rel="noopener noreferrer">6282158292042</a></td>
                     </tr>
                     <tr>
                         <td>Lokasi</td>
                         <td>:</td>
-                        <td>Asgard</td>
+                        <td id="lokasiCustomer">Asgard</td>
                     </tr>
                     <tr>
                         <td>Status</td>
