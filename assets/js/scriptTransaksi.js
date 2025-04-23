@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		let targetLokasiCustomer = document.getElementById("lokasiCustomer");
 		targetNamaCustomer.innerText = namaCustomer;
 		targetNoHpCustomer.innerText = hpCustomer;
+		targetNoHpCustomer.attributes["href"].value = "https://wa.me/" + hpCustomer;
 		targetLokasiCustomer.innerText = lokasiCustomer;
 	});
 });

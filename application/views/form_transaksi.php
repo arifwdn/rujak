@@ -39,17 +39,17 @@
                     <tr>
                         <td>Nama</td>
                         <td>:</td>
-                        <td id="namaCustomer">Alibi</td>
+                        <td id="namaCustomer">unknown</td>
                     </tr>
                     <tr>
                         <td>No. Hp/Wa</td>
                         <td>:</td>
-                        <td><a id="noHpCustomer" class="text-dark text-decoration-none" href="https://wa.me/6282158292042" target="_blank" rel="noopener noreferrer">6282158292042</a></td>
+                        <td><a id="noHpCustomer" class="text-dark text-decoration-none" href="https://wa.me/62" target="_blank" rel="noopener noreferrer">unknown</a></td>
                     </tr>
                     <tr>
                         <td>Lokasi</td>
                         <td>:</td>
-                        <td id="lokasiCustomer">Asgard</td>
+                        <td id="lokasiCustomer">unknown</td>
                     </tr>
                     <tr>
                         <td>Status</td>
