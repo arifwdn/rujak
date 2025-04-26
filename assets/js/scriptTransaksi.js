@@ -20,14 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const pilihBarang = document.getElementById("pilihBarang");
 	const btnAddBarang = document.getElementById("btnAddBarang");
 
-	const totals = document.getElementsByClassName("total");
-	totals.addEventListener("input", (e) => {
-		const totalPendapatan = document.getElementById("totalPendapatan");
-		for (let i = 0; i < totals.length; i++) {
-			totalPendapatan.setAttribute("value", e[i].value);
-		}
-	});
-
 	btnAddBarang.addEventListener("click", () => {
 		let selectedIndexBarang = pilihBarang.selectedIndex;
 		if (selectedIndexBarang === 0) {
@@ -38,8 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		let namaBarang = pilihBarang.options[selectedIndexBarang].innerText.trim();
 		let hargaBarang =
 			pilihBarang.options[selectedIndexBarang].attributes["data-harga"].value;
-		let satuanBarang =
-			pilihBarang.options[selectedIndexBarang].attributes["data-satuan"].value;
 		let stokBarang =
 			pilihBarang.options[selectedIndexBarang].attributes["data-stok"].value;
 		pilihBarang.options[selectedIndexBarang].setAttribute("disabled", "");
@@ -108,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const containerBarang = document.getElementById("containerBarang");
 		btnDelete.addEventListener("click", () => {
 			tr.remove();
+			pilihBarang.options[selectedIndexBarang].removeAttribute("disabled");
 		});
 		containerBarang.appendChild(tr);
 	});

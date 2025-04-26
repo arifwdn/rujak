@@ -67,7 +67,7 @@
                                 <select class="form-select" id="pilihBarang" aria-label="Pilih Barang">
                                     <option selected disabled>-Pilih Barang-</option>
                                     <?php foreach ($barang as $data): ?>
-                                        <option value="<?= $data['id_barang'] ?>" data-harga="<?= $data['harga']; ?>" data-satuan="<?= $data['satuan']; ?>" data-stok="<?= $data['stok']; ?>">
+                                        <option value="<?= $data['id_barang'] ?>" data-harga="<?= $data['harga']; ?>" data-stok="<?= $data['stok']; ?>">
                                             <?= $data['nama_barang'] ?>
                                         </option>
                                     <?php endforeach; ?>
