@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			pilihBarang.options[selectedIndexBarang].removeAttribute("disabled");
 		});
 		containerBarang.appendChild(tr);
+		btnHitungTotal.removeAttribute("disabled");
 	});
 	// Tombol setelah pilih barang
 	pilihBarang.addEventListener("change", () => {
@@ -109,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Total pendapatan
 	const totalPendapatan = document.getElementById("totalPendapatan");
 	const btnHitungTotal = document.getElementById("hitungTotal");
+
 	btnHitungTotal.addEventListener("click", () => {
 		const totals = document.getElementsByClassName("total");
 		if (totals.length < 1) {
