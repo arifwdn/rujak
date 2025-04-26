@@ -102,7 +102,27 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 		containerBarang.appendChild(tr);
 	});
+	// Tombol setelah pilih barang
 	pilihBarang.addEventListener("change", () => {
 		btnAddBarang.removeAttribute("disabled");
+	});
+	// Total pendapatan
+	const totalPendapatan = document.getElementById("totalPendapatan");
+	const btnHitungTotal = document.getElementById("hitungTotal");
+	btnHitungTotal.addEventListener("click", () => {
+		const totals = document.getElementsByClassName("total");
+		if (totals.length < 1) {
+			alert("Barang belum dimasukkan");
+			return 0;
+		}
+		let sum = 0;
+		for (let i = 0; i < totals.length; i++) {
+			nilai = parseInt(totals[i].value);
+			if (totals[i].value == "") {
+				nilai = 0;
+			}
+			sum += nilai;
+		}
+		totalPendapatan.setAttribute("value", sum);
 	});
 });
