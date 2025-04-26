@@ -60,6 +60,26 @@
                     </tr>
                 </table>
                 <hr>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <div class="form-floating mb-3">
+                            <div class="form-floating">
+                                <select class="form-select" id="pilihBarang" aria-label="Pilih Barang">
+                                    <option selected disabled>-Pilih Barang-</option>
+                                    <?php foreach ($barang as $data): ?>
+                                        <option value="<?= $data['id_barang'] ?>" data-harga="<?= $data['harga']; ?>" data-satuan="<?= $data['satuan']; ?>" data-stok="<?= $data['stok']; ?>">
+                                            <?= $data['nama_barang'] ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label for="pilihBarang">Barang</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary" id="btnAddBarang">+ Add Barang</button>
+                    </div>
+                </div>
                 <table class="table">
                     <thead class="table-light">
                         <th>No</th>
@@ -70,34 +90,15 @@
                         <th>Terjual</th>
                         <th>Sisa</th>
                         <th>Total</th>
-                        <th>Action</th>
+                        <th>Delete</th>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <select name="id_barang[]" id="id_barang" required>
-                                    <option selected disabled>-Pilih barang-</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                </select>
-                            </td>
-                            <td>Rujak Uk.Kecil</td>
-                            <td>Rp4000,-</td>
-                            <td><input class="form-control" style="width: 100px;" type="number" name="qty[]" id=""></td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>Rp16000,-</td>
-                            <td>
-                                <a href="#" class="btn badge text-bg-primary">+</a>
-                                <a href="#" class="btn badge text-bg-danger">-</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="7">Total Pendapatan</td>
-                            <td>Rp16000,-</td>
-                        </tr>
+                    <tbody id="containerBarang">
+
                     </tbody>
+                    <tr>
+                        <td colspan="7">Total Pendapatan</td>
+                        <td>Rp<input type="number" name="total" value="32000" style="border: none; width: 100px;" readonly />,-</td>
+                    </tr>
                 </table>
                 <hr>
                 <table class="table" border="0">

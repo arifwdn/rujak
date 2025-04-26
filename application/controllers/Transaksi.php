@@ -8,6 +8,7 @@ class Transaksi extends CI_Controller
         parent::__construct();
         cek_login();
         $this->load->model('Customer_model', 'customer');
+        $this->load->model('Barang_model', 'barang');
     }
 
     public function index()
@@ -23,6 +24,7 @@ class Transaksi extends CI_Controller
         $data['title'] = "Transaksi";
         $data['transaksi'] = [];
         $data['customer'] = $this->customer->getCustomer();
+        $data['barang'] = $this->barang->getBarang();
         $data['navbar'] = $this->load->view('navbar', $data, true);
         $data['content'] = $this->load->view('form_transaksi', $data, true);
         $data['script'] = $this->load->view('script_transaksi', [], true);
