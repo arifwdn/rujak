@@ -97,7 +97,7 @@
                     </tbody>
                     <tr>
                         <td colspan="7">Total Pendapatan</td>
-                        <td>Rp<input type="number" name="total" value="32000" style="border: none; width: 100px;" readonly />,-</td>
+                        <td>Rp<input type="number" id="totalPendapatan" name="total_pendapatan" value="0" style="border: none; width: 100px;" readonly />,-</td>
                     </tr>
                 </table>
                 <hr>

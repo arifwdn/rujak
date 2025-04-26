@@ -20,6 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	const pilihBarang = document.getElementById("pilihBarang");
 	const btnAddBarang = document.getElementById("btnAddBarang");
 
+	const totals = document.getElementsByClassName("total");
+	totals.addEventListener("input", (e) => {
+		const totalPendapatan = document.getElementById("totalPendapatan");
+		for (let i = 0; i < totals.length; i++) {
+			totalPendapatan.setAttribute("value", e[i].value);
+		}
+	});
+
 	btnAddBarang.addEventListener("click", () => {
 		let selectedIndexBarang = pilihBarang.selectedIndex;
 		if (selectedIndexBarang === 0) {
@@ -66,17 +74,26 @@ document.addEventListener("DOMContentLoaded", () => {
 		tdTerjual.innerText = "-";
 		let tdSisa = document.createElement("td");
 		tdSisa.innerText = "-";
-		let tdDelete = document.createElement("td");
+		let tdTotal = document.createElement("td"); // 7. Total
+		let inputTotal = document.createElement("input");
+		inputTotal.setAttribute("name", "total[]");
+		inputTotal.setAttribute("type", "number");
+		inputTotal.setAttribute("style", "width: 100px; border: none;");
+		inputTotal.setAttribute("readonly", "");
+		inputTotal.setAttribute("class", "total");
+		tdTotal.appendChild(inputTotal);
+		let tdDelete = document.createElement("td"); // 6. Delete Btn
 		let btnDelete = document.createElement("a");
 		btnDelete.setAttribute("href", "#");
 		btnDelete.setAttribute("class", "btn badge text-bg-danger");
 		btnDelete.innerText = "-";
-		let tdTotal = document.createElement("td");
-		tdTotal.innerText = 0;
 		tdDelete.appendChild(btnDelete);
 
 		inputQty.addEventListener("input", (e) => {
-			tdTotal.innerText = parseInt(hargaBarang) * parseInt(e.target.value);
+			inputTotal.setAttribute(
+				"value",
+				parseInt(hargaBarang) * parseInt(e.target.value)
+			);
 		});
 
 		tr.appendChild(tdNo);
@@ -87,8 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		tr.appendChild(tdTerjual);
 		tr.appendChild(tdSisa);
 		tr.appendChild(tdTotal);
-		tr.appendChild(btnDelete);
+		tr.appendChild(tdDelete);
 		const containerBarang = document.getElementById("containerBarang");
+		btnDelete.addEventListener("click", () => {
+			tr.remove();
+		});
 		containerBarang.appendChild(tr);
 	});
 	pilihBarang.addEventListener("change", () => {
