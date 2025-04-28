@@ -49,4 +49,10 @@ class Transaksi_model extends CI_Model
         $data = $this->db->query('SELECT id_transaksi, tanggal, customer.nama as nama, customer.lokasi as lokasi, sudah_diambil  FROM transaksi, customer WHERE transaksi.id_customer = customer.id_customer')->result_array();
         return $data;
     }
+
+    public function deleteTransaksi()
+    {
+        $this->db->delete('transaksi', 'id_transaksi=' . $this->id_transaksi);
+        return true;
+    }
 }

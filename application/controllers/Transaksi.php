@@ -51,4 +51,14 @@ class Transaksi extends CI_Controller
             redirect('transaksi');
         }
     }
+
+    public function delete_transaksi($id_transaksi)
+    {
+        $this->transaksi->id_transaksi = $id_transaksi;
+        $delete = $this->transaksi->deleteTransaksi();
+        if ($delete) {
+            $this->session->set_tempdata('transaksi_message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Delete Data Success!</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>', 3);
+            redirect('transaksi');
+        }
+    }
 }
