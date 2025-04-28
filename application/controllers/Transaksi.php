@@ -9,6 +9,7 @@ class Transaksi extends CI_Controller
         cek_login();
         $this->load->model('Customer_model', 'customer');
         $this->load->model('Barang_model', 'barang');
+        $this->load->model('Transaksi_model', 'transaksi');
     }
 
     public function index()
@@ -33,7 +34,21 @@ class Transaksi extends CI_Controller
 
     public function proses_add_transaksi()
     {
-        echo json_encode($this->input->post());
-        die;
+        $this->transaksi->id_customer = $this->input->post('id_customer');
+        $this->transaksi->tanggal = $this->input->post('tanggal');
+        $this->transaksi->total_pendapatan = $this->input->post('total_pendapatan');
+        for ($i = 0; $i < count($this->input->post('id_barang')); $i++) {
+            $this->transaksi->detail_transaksi[$i] = [
+                'id_barang' => $this->input->post('id_barang')[$i],
+                'qty' => $this->input->post('qty')[$i],
+                'total' => $this->input->post('total')[$i],
+            ];
+        }
+
+        $save = $this->transaksi->insert_transaksi();
+        if ($save) {
+            $this->session->set_tempdata('transaksi_message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Add Data Success!</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>', 3);
+            redirect('transaksi');
+        }
     }
 }
