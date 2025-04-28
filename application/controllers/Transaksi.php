@@ -15,15 +15,15 @@ class Transaksi extends CI_Controller
     public function index()
     {
         $data['title'] = "Transaksi";
+        $data['transaksi'] = $this->transaksi->getTransaksi();
         $data['navbar'] = $this->load->view('navbar', $data, true);
-        $data['content'] = $this->load->view('transaksi', [], true);
+        $data['content'] = $this->load->view('transaksi', $data, true);
         $this->load->view('main', $data);
     }
 
     public function add_transaksi()
     {
         $data['title'] = "Transaksi";
-        $data['transaksi'] = [];
         $data['customer'] = $this->customer->getCustomer();
         $data['barang'] = $this->barang->getBarang();
         $data['navbar'] = $this->load->view('navbar', $data, true);

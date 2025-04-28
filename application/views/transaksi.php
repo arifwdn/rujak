@@ -25,17 +25,29 @@
                 <th>Action</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td><?= indodatetime(date('Y-m-d')); ?></td>
-                    <td>Alibi</td>
-                    <td>Asgard</td>
-                    <td><span class="badge text-bg-warning">Belum diambil</span></td>
-                    <td>
-                        <a href="#" class="btn badge text-bg-primary">edit</a>
-                        <a href="#" class="btn badge text-bg-danger">hapus</a>
-                    </td>
-                </tr>
+                <?php
+                $i = 1;
+                foreach ($transaksi as $data): ?>
+                    <tr>
+                        <td><?= $i; ?></td>
+                        <td><?= indodatetime(date('Y-m-d', strtotime($data['tanggal']))); ?></td>
+                        <td><?= $data['nama']; ?></td>
+                        <td><?= $data['lokasi']; ?></td>
+                        <td>
+                            <?php if ($data['sudah_diambil'] == null): ?>
+                                <span class="badge text-bg-warning">Belum diambil</span>
+                            <?php else: ?>
+                                <span class="badge text-bg-success">Sudah diambil</span>
+                            <?php endif; ?>
+                        </td>
+                        <td>
+                            <a href="#" class="btn badge text-bg-primary">detail</a>
+                            <a href="#" class="btn badge text-bg-danger">hapus</a>
+                        </td>
+                    </tr>
+                <?php
+                    $i++;
+                endforeach; ?>
             </tbody>
         </table>
     </div>

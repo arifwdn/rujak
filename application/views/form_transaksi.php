@@ -15,11 +15,10 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="<?= base_url(($transaksi != []) ? 'transaksi/proses_edit_transaksi' : 'transaksi/proses_add_transaksi'); ?>" method="post" class="form-control">
+            <form action="<?= base_url('transaksi/proses_add_transaksi'); ?>" method="post" class="form-control">
                 <h2>Form Transaksi</h2>
-                <input type="text" class="form-control" name="id_customer" value="<?= ($transaksi != []) ? $transaksi['id_transaksi'] : ''; ?>" placeholder="Id Transaksi" hidden>
                 <div class="form-floating mb-3">
-                    <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= ($transaksi != []) ? $transaksi['tanggal'] : ''; ?>" placeholder="Tanggal" required>
+                    <input type="date" class="form-control" id="tanggal" name="tanggal" placeholder="Tanggal" required>
                     <label for="tanggal">Tanggal</label>
                 </div>
                 <div class="form-floating mb-3">

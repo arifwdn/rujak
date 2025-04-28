@@ -43,4 +43,10 @@ class Transaksi_model extends CI_Model
             return true;
         }
     }
+
+    public function getTransaksi()
+    {
+        $data = $this->db->query('SELECT tanggal, customer.nama as nama, customer.lokasi as lokasi, sudah_diambil  FROM transaksi, customer WHERE transaksi.id_customer = customer.id_customer')->result_array();
+        return $data;
+    }
 }
