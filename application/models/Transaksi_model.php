@@ -17,8 +17,7 @@ class Transaksi_model extends CI_Model
         $this->db->insert('transaksi', [
             'id_customer' => $this->id_customer,
             'tanggal' => $this->tanggal,
-            'total_pendapatan' => $this->total_pendapatan,
-            'sudah_diambil' => null
+            'total_pendapatan' => $this->total_pendapatan
         ]);
         $id_transaksi = $this->db->insert_id();
 
@@ -29,7 +28,9 @@ class Transaksi_model extends CI_Model
                 'quantity' => $this->detail_transaksi[$i]['qty'],
                 'total' => $this->detail_transaksi[$i]['total']
             ]);
-            // $this->db->update('barang', ['stok',], 'id_barang=' . $this->detail_transaksi[$i]['id_barang']);
+            $data = $this->db->get_where('barang', 'id_barang=' . $this->detail_transaksi[$i]['id_barang'])->row_array();
+
+            $this->db->update('barang', ['stok' => (int)$data['stok'] - (int)$this->detail_transaksi[$i]['qty']], 'id_barang=' . $data['id_barang']);
         }
 
         $this->db->trans_complete();
