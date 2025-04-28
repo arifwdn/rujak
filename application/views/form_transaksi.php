@@ -98,7 +98,7 @@
                     <tr>
                         <td colspan="6"><button type="button" id="hitungTotal" class="btn btn-success">Hitung Total</button></td>
                         <td>Total Pendapatan</td>
-                        <td>Rp<input type="number" id="totalPendapatan" name="total_pendapatan" value="" style="border: none; width: 100px;" readonly required />,-</td>
+                        <td>Rp<input type="number" id="totalPendapatan" name="total_pendapatan" style="border: none; width: 100px;" required />,-</td>
                     </tr>
                 </table>
                 <hr>

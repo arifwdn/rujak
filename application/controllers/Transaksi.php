@@ -30,4 +30,10 @@ class Transaksi extends CI_Controller
         $data['script'] = $this->load->view('script_transaksi', [], true);
         $this->load->view('main', $data);
     }
+
+    public function proses_add_transaksi()
+    {
+        echo json_encode($this->input->post());
+        die;
+    }
 }

@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		inputQty.setAttribute("type", "number");
 		inputQty.setAttribute("min", 0);
 		inputQty.setAttribute("max", stokBarang);
+		inputQty.setAttribute("required", "");
 		tdQty.appendChild(inputQty);
 		let tdTerjual = document.createElement("td");
 		tdTerjual.innerText = "-";
@@ -108,10 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		btnAddBarang.removeAttribute("disabled");
 	});
 	// Total pendapatan
-	const totalPendapatan = document.getElementById("totalPendapatan");
-	const btnHitungTotal = document.getElementById("hitungTotal");
-
-	btnHitungTotal.addEventListener("click", () => {
+	const hitungTotalPendapatan = () => {
 		const totals = document.getElementsByClassName("total");
 		if (totals.length < 1) {
 			alert("Barang belum dimasukkan");
@@ -126,5 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
 			sum += nilai;
 		}
 		totalPendapatan.setAttribute("value", sum);
-	});
+	};
+	const totalPendapatan = document.getElementById("totalPendapatan");
+	const btnHitungTotal = document.getElementById("hitungTotal");
+
+	totalPendapatan.addEventListener("focus", hitungTotalPendapatan);
+	btnHitungTotal.addEventListener("click", hitungTotalPendapatan);
 });
