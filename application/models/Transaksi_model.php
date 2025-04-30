@@ -46,8 +46,24 @@ class Transaksi_model extends CI_Model
 
     public function getTransaksi()
     {
-        $data = $this->db->query('SELECT id_transaksi, tanggal, customer.nama as nama, customer.lokasi as lokasi, sudah_diambil  FROM transaksi, customer WHERE transaksi.id_customer = customer.id_customer')->result_array();
+        $query = 'SELECT id_transaksi, tanggal, customer.nama as nama, customer.lokasi as lokasi, sudah_diambil  FROM transaksi, customer WHERE transaksi.id_customer = customer.id_customer ORDER BY tanggal DESC';
+        $data = $this->db->query($query)->result_array();
         return $data;
+    }
+
+    public function getDetailTransaksi()
+    {
+        $query = 'SELECT *, customer.nama as nama, customer.no_hp as no_hp, customer.lokasi as lokasi, 
+        barang.nama_barang as nama_barang, barang.harga as harga,
+        detail_transaksi.quantity as quantity, detail_transaksi.jumlah_terjual as terjual, 
+        detail_transaksi.sisa as sisa, detail_transaksi.total as total
+        FROM transaksi, detail_transaksi, customer, barang
+        WHERE transaksi.id_transaksi = detail_transaksi.id_transaksi 
+        AND transaksi.id_customer = customer.id_customer 
+        AND detail_transaksi.id_barang = barang.id_barang
+        AND transaksi.id_transaksi = ' . $this->id_transaksi;
+        $transaksi_detail = $this->db->query($query)->result_array();
+        return $transaksi_detail;
     }
 
     public function deleteTransaksi()

@@ -41,7 +41,7 @@
                             <?php endif; ?>
                         </td>
                         <td>
-                            <a href="#" class="btn badge text-bg-primary">detail</a>
+                            <a href="<?= base_url('transaksi/detail_transaksi/') . $data['id_transaksi']; ?>" class="btn badge text-bg-primary">detail</a>
                             <a href="<?= base_url('transaksi/delete_transaksi/') . $data['id_transaksi']; ?>" class="btn badge text-bg-danger">hapus</a>
                         </td>
                     </tr>

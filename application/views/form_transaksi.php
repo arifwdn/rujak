@@ -105,12 +105,12 @@
                     <tr>
                         <td>
                             <p>Mengetahui</p>
-                            <br><br><br>
+                            <br><br>
                             <p>Customer</p>
                         </td>
                         <td>
                             <p>Telah diambil pada <?= indodatetime(date('Y-m-d')); ?></p>
-                            <br><br><br>
+                            <br><br>
                             <p>Pengambil</p>
                         </td>
                     </tr>

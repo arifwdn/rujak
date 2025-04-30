@@ -52,6 +52,17 @@ class Transaksi extends CI_Controller
         }
     }
 
+    public function detail_transaksi($id_transaksi)
+    {
+        $data['title'] = "Transaksi";
+        $this->transaksi->id_transaksi = $id_transaksi;
+        $data['transaksi'] = $this->transaksi->getDetailTransaksi();
+        $data['navbar'] = $this->load->view('navbar', $data, true);
+        $data['content'] = $this->load->view('detail_transaksi', $data, true);
+        $data['script'] = '';
+        $this->load->view('main', $data);
+    }
+
     public function delete_transaksi($id_transaksi)
     {
         $this->transaksi->id_transaksi = $id_transaksi;
