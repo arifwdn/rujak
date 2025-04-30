@@ -156,7 +156,7 @@
                     </table>
                     <hr>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="pengambil" name="pengambil" placeholder="Nama Pengambil">
+                        <input type="text" class="form-control" id="pengambil" name="pengambil" placeholder="Nama Pengambil" required />
                         <label for="pengambil">Nama Pengambil</label>
                     </div>
                 </div>

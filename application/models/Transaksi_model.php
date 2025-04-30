@@ -66,6 +66,35 @@ class Transaksi_model extends CI_Model
         return $transaksi_detail;
     }
 
+    public function confirmTransaksi()
+    {
+        $this->db->trans_start();
+        $this->db->update('transaksi', [
+            'total_pendapatan' => $this->total_pendapatan,
+            'sudah_diambil' => date('Y-m-d\TH:i:s'),
+            'pengambil' => $this->pengambil
+        ], 'id_transaksi=' . $this->id_transaksi);
+
+        for ($i = 0; $i < count($this->detail_transaksi); $i++) {
+            $this->db->update('detail_transaksi', [
+                'total' => $this->detail_transaksi[$i]['total']
+            ], 'id_detail_transaksi=' . $this->detail_transaksi[$i]['id_detail_transaksi']);
+            $data = $this->db->get_where('barang', 'id_barang=' . $this->detail_transaksi[$i]['id_barang'])->row_array();
+
+            $this->db->update('barang', ['stok' => (int)$data['stok'] - (int)$this->detail_transaksi[$i]['qty']], 'id_barang=' . $data['id_barang']);
+        }
+
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === false) {
+            $this->db->trans_rollback();
+            return false;
+        } else {
+            $this->db->trans_commit();
+            return true;
+        }
+    }
+
     public function deleteTransaksi()
     {
         $this->db->delete('transaksi', 'id_transaksi=' . $this->id_transaksi);
