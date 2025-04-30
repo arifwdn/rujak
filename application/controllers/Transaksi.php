@@ -28,7 +28,7 @@ class Transaksi extends CI_Controller
         $data['barang'] = $this->barang->getBarang();
         $data['navbar'] = $this->load->view('navbar', $data, true);
         $data['content'] = $this->load->view('form_transaksi', $data, true);
-        $data['script'] = $this->load->view('script_transaksi', [], true);
+        $data['script'] = $this->load->view('script_transaksi', ['script' => 'transaksi'], true);
         $this->load->view('main', $data);
     }
 
@@ -59,7 +59,7 @@ class Transaksi extends CI_Controller
         $data['transaksi'] = $this->transaksi->getDetailTransaksi();
         $data['navbar'] = $this->load->view('navbar', $data, true);
         $data['content'] = $this->load->view('detail_transaksi', $data, true);
-        $data['script'] = '';
+        $data['script'] = $this->load->view('script_transaksi', ['script' => 'detail_transaksi'], true);
         $this->load->view('main', $data);
     }
 
