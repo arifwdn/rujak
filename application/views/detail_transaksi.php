@@ -94,14 +94,16 @@
                 </tr>
             </table>
             <div class="form-floating mb-3 d-flex justify-content-end">
-                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalTransaksi">Confirm Transaksi</button>
+                <?php if ($transaksi[0]['sudah_diambil'] == null): ?>
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalTransaksi">Confirm Transaksi</button>
+                <?php endif; ?>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Modal Transaksi -->
-<div class="modal fade modal-xl" id="modalTransaksi">
+<div class="modal fade modal-xl" id="modalTransaksi" aria-hidden="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="<?= base_url('transaksi/konfirmasi_transaksi/') . $transaksi[0]['id_transaksi']; ?>" method="post" class="form-control">
@@ -110,50 +112,56 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <table class="table">
-                        <thead class="table-light">
-                            <th>No</th>
-                            <th>Id Barang</th>
-                            <th>Nama Barang</th>
-                            <th>Harga</th>
-                            <th>Qty</th>
-                            <th>Terjual</th>
-                            <th>Sisa</th>
-                            <th>Total</th>
-                        </thead>
-                        <tbody>
-                            <?php $i = 1;
-                            foreach ($transaksi as $data): ?>
-                                <tr>
-                                    <input type="hidden" name="id_detail_transaksi[]" value="<?= $data['id_detail_transaksi']; ?>">
-                                    <td><?= $i; ?></td>
-                                    <td><?= $data['id_barang']; ?></td>
-                                    <td><?= $data['nama_barang']; ?></td>
-                                    <td><?= $data['harga']; ?></td>
-                                    <td><?= $data['quantity']; ?></td>
-                                    <td>
-                                        <input class="form-control terjual" type="number" name="terjual[]" min="0" max="<?= $data['quantity']; ?>" data-harga="<?= $data['harga']; ?>" required />
-                                    </td>
-                                    <td>
-                                        <input class="form-control sisa" type="number" name="sisa[]" min="0" max="<?= $data['quantity']; ?>" readonly />
-                                    </td>
-                                    <td>
-                                        <input class="form-control total" type="number" value="<?= $data['total']; ?>" name="total[]" readonly />
-                                    </td>
-                                </tr>
-                            <?php $i++;
-                            endforeach; ?>
-                        </tbody>
-                        <tr>
-                            <td colspan="6">
-                                <button type="button" id="hitungTotal" class="btn btn-success">Hitung Total</button>
-                            </td>
-                            <td>Total Pendapatan</td>
-                            <td>
-                                <input class="form-control" type="number" name="total_pendapatan" id="totalPendapatan" min="0" required />
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 overflow-auto">
+                                <table class="table">
+                                    <thead class="table-light">
+                                        <th>No</th>
+                                        <th>Id Barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>Harga</th>
+                                        <th>Qty</th>
+                                        <th>Terjual</th>
+                                        <th>Sisa</th>
+                                        <th>Total</th>
+                                    </thead>
+                                    <tbody>
+                                        <?php $i = 1;
+                                        foreach ($transaksi as $data): ?>
+                                            <tr>
+                                                <input type="hidden" name="id_detail_transaksi[]" value="<?= $data['id_detail_transaksi']; ?>">
+                                                <td><?= $i; ?></td>
+                                                <td><?= $data['id_barang']; ?></td>
+                                                <td><?= $data['nama_barang']; ?></td>
+                                                <td><?= $data['harga']; ?></td>
+                                                <td><?= $data['quantity']; ?></td>
+                                                <td>
+                                                    <input class="form-control terjual" type="number" name="terjual[]" min="0" max="<?= $data['quantity']; ?>" data-harga="<?= $data['harga']; ?>" required />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control sisa" type="number" name="sisa[]" min="0" max="<?= $data['quantity']; ?>" readonly />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control total" type="number" value="<?= $data['total']; ?>" name="total[]" readonly />
+                                                </td>
+                                            </tr>
+                                        <?php $i++;
+                                        endforeach; ?>
+                                    </tbody>
+                                    <tr>
+                                        <td colspan="6">
+                                            <button type="button" id="hitungTotal" class="btn btn-success">Hitung Total</button>
+                                        </td>
+                                        <td>Total Pendapatan</td>
+                                        <td>
+                                            <input class="form-control" type="number" name="total_pendapatan" id="totalPendapatan" min="0" required />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                     <hr>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="pengambil" name="pengambil" placeholder="Nama Pengambil" required />

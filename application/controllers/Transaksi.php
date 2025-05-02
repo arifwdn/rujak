@@ -63,6 +63,27 @@ class Transaksi extends CI_Controller
         $this->load->view('main', $data);
     }
 
+    public function konfirmasi_transaksi($id_transaksi)
+    {
+        $this->transaksi->id_transaksi = $id_transaksi;
+        $this->transaksi->pengambil = $this->input->post('pengambil');
+        $this->transaksi->total_pendapatan = $this->input->post('total_pendapatan');
+        for ($i = 0; $i < count($this->input->post('id_detail_transaksi')); $i++) {
+            $this->transaksi->detail_transaksi[$i] = [
+                'total' => $this->input->post('total')[$i],
+                'terjual' => $this->input->post('terjual')[$i],
+                'sisa' => $this->input->post('sisa')[$i],
+                'id_detail_transaksi' => $this->input->post('id_detail_transaksi')[$i]
+            ];
+        }
+
+        $save = $this->transaksi->confirmTransaksi();
+        if ($save) {
+            $this->session->set_tempdata('transaksi_message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Konfirmasi Success!</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>', 3);
+            redirect('transaksi');
+        }
+    }
+
     public function delete_transaksi($id_transaksi)
     {
         $this->transaksi->id_transaksi = $id_transaksi;

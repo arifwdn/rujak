@@ -77,11 +77,10 @@ class Transaksi_model extends CI_Model
 
         for ($i = 0; $i < count($this->detail_transaksi); $i++) {
             $this->db->update('detail_transaksi', [
-                'total' => $this->detail_transaksi[$i]['total']
+                'total' => $this->detail_transaksi[$i]['total'],
+                'jumlah_terjual' => $this->detail_transaksi[$i]['terjual'],
+                'sisa' => $this->detail_transaksi[$i]['sisa']
             ], 'id_detail_transaksi=' . $this->detail_transaksi[$i]['id_detail_transaksi']);
-            $data = $this->db->get_where('barang', 'id_barang=' . $this->detail_transaksi[$i]['id_barang'])->row_array();
-
-            $this->db->update('barang', ['stok' => (int)$data['stok'] - (int)$this->detail_transaksi[$i]['qty']], 'id_barang=' . $data['id_barang']);
         }
 
         $this->db->trans_complete();
