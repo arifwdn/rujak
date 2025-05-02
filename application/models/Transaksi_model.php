@@ -99,4 +99,20 @@ class Transaksi_model extends CI_Model
         $this->db->delete('transaksi', 'id_transaksi=' . $this->id_transaksi);
         return true;
     }
+
+    public function buatDashboard()
+    {
+        $query = 'SELECT id_transaksi, tanggal, customer.nama as nama, customer.lokasi as lokasi, sudah_diambil  FROM transaksi, customer WHERE transaksi.id_customer = customer.id_customer AND tanggal="' . date('Y-m-d') . '" ORDER BY tanggal DESC';
+        $data_hari_ini = $this->db->query($query)->result_array();
+        $total_transaksi = $this->db->count_all('transaksi');
+        $total_sudah = count($this->db->get_where('transaksi', 'tanggal="' . date('Y-m-d') . '" AND sudah_diambil IS NOT null')->result_array());
+        $total_belum = count($this->db->get_where('transaksi', 'tanggal="' . date('Y-m-d') . '" AND sudah_diambil IS null')->result_array());
+
+        return [
+            'transaksi' => $data_hari_ini,
+            'total_transaksi' => $total_transaksi,
+            'total_sudah_diambil' => $total_sudah,
+            'total_belum_diambil' => $total_belum
+        ];
+    }
 }
