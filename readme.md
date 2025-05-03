@@ -1,7 +1,5 @@
 # Aplikasi Penjualan Rujak
 
----
-
 ## Tentang Aplikasi
 
 Studi Kasus Penjualan Rujak Afif
